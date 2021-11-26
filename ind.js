@@ -10,6 +10,7 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
+
 function drowResponseDataToPage(data) {
     if (data.length === 0) {
         const emptyInfo = document.createElement('H1');
@@ -21,7 +22,7 @@ function drowResponseDataToPage(data) {
             let unpackageData = data[key];
             let listItem = document.createElement('LI');
             let content = document.createTextNode(`${unpackageData.firstname} ${unpackageData.lastname} ${unpackageData.email}`);
-            listItem.innerHTML = `<div class="container"><i class="fa fa-trash-o" name="delete" id=${unpackageData._id}></i><i class="fa fa-edit" name="edit" id=${unpackageData.id}></i></div>`
+            listItem.innerHTML = `<div class="container"><i class="fa fa-trash-o" name="delete" id=${unpackageData._id}></i><i class="fa fa-edit" name="edit" id=${unpackageData._id}></i></div>`
             listItem.appendChild(content);
             let mainList = document.getElementById('studentsList');
             mainList.appendChild(listItem);
@@ -46,9 +47,10 @@ function handleEditClick() {
     let editIcons = document.getElementsByName('edit');
     for (let index = 0; index < editIcons.length; index++) {
         editIcons[index].addEventListener('click', function (e) {
+            console.log('iddddddddddd---->>>', e.target.id)
 
             $.ajax({
-                url: `https://jsonplaceholder.typicode.com/posts/${e.target.id}`,
+                url: `http://127.0.0.1:3000/students//${e.target.id}`,
                 success: function (data) {
                     editResponseData(data)
                 }
@@ -60,12 +62,14 @@ function handleEditClick() {
 }
 
 function showAlert(ev) {
-    console.log('AAAAAAAAAA---->>>', ev.target.id);
     $.ajax({
         url: `http://127.0.0.1:3000/students/${ev.target.id}`,
         method: 'DELETE',
         success: function () {
             alert('Student is deleted successfully!!!');
+           $(ev).click(function () {
+               $(this).parent().remove()
+           })
         },
         error: function (xhr, status, error) {
             alert('Something went wrong ' + xhr.status + ' ' + xhr.statusText);
@@ -75,11 +79,12 @@ function showAlert(ev) {
 }
 
 function editResponseData(responseObject) {
+    console.log('AAAAAAAAA---->>>', responseObject);
     let inputFieldTitle = document.createElement('INPUT');
-    inputFieldTitle.value = responseObject.title;
+    inputFieldTitle.value = responseObject.firstname;
     document.getElementById('inputConteiner').appendChild(inputFieldTitle);
     let inputFieldBody = document.createElement('INPUT');
-    inputFieldBody.value = responseObject.body;
+    inputFieldBody.value = responseObject.lastname;
     document.getElementById('inputConteiner').appendChild(inputFieldBody);
 
 
@@ -89,9 +94,8 @@ function editResponseData(responseObject) {
 
 $(document).ready(function () {
     $('#someRequest').click(function () {
-        console.log('-----DONE------');
         $.ajax({
-            url: "https://jsonplaceholder.typicode.com/posts",
+            url: "http://127.0.0.1:3000/students",
             success: function (returnData) {
                 console.log('AAAAAAAAAAAAAA---->>>', returnData);
                 drowResponseDataToPage(returnData);
@@ -102,7 +106,6 @@ $(document).ready(function () {
         })
     })
 })
-
 // function deleteAllStudents(params) {
 //     const idLists = [];
 //     params.map((item) => {

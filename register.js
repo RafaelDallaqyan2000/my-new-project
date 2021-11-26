@@ -41,6 +41,7 @@ $(document).ready(function(){
       data: array,
       success: function (returnData) {
           alert("Student is added successfully");
+          window.location.replace('/')
       },
       error: function (xhr, status, error) {
           alert('Something went wrong ' + xhr.status + ' ' + xhr.statusText);
