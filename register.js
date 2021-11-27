@@ -19,7 +19,7 @@ $(document).ready(function(){
      "email" : "",
      "mobile" : "",
      "age" : ""
- }
+ };
 
     let firstname = document.getElementById("studentName").value;
     let lastName = document.getElementById("lastName").value;
@@ -33,7 +33,7 @@ $(document).ready(function(){
      array.mobile = mobile;
      array.age = age;
    
-    console.log("Arrr-->>>", array)
+    console.log("Arrr-->>>", array);
     
     $.ajax({
       url: "http://127.0.0.1:3000/students",
@@ -46,17 +46,10 @@ $(document).ready(function(){
       error: function (xhr, status, error) {
           alert('Something went wrong ' + xhr.status + ' ' + xhr.statusText);
       }
-  })
+  });
   
   })
-   
-let a = 5;
-while(a < 10){
-  let b = a * 2;
-  return b
-  a++
-};
-console.log((".".repeat(b)));
+ 
    
 })
 // function selectAlert(){

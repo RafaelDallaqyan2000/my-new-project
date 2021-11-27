@@ -27,7 +27,7 @@ function drowResponseDataToPage(data) {
             let mainList = document.getElementById('studentsList');
             mainList.appendChild(listItem);
             $('li').css({ 'border-bottom': '1px solid black', 'padding': '5px' });
-            $('i').css({ 'color': 'red', 'font-size': '20px', 'cursor': 'pointer' });
+            $('i').css({ 'font-size': '20px', 'cursor': 'pointer' });
             $('.container').css({ 'float': 'right' });
         }
     }
@@ -53,6 +53,7 @@ function handleEditClick() {
                 url: `http://127.0.0.1:3000/students//${e.target.id}`,
                 success: function (data) {
                     editResponseData(data)
+
                 }
 
             })
@@ -67,9 +68,6 @@ function showAlert(ev) {
         method: 'DELETE',
         success: function () {
             alert('Student is deleted successfully!!!');
-           $(ev).click(function () {
-               $(this).parent().remove()
-           })
         },
         error: function (xhr, status, error) {
             alert('Something went wrong ' + xhr.status + ' ' + xhr.statusText);
@@ -86,7 +84,8 @@ function editResponseData(responseObject) {
     let inputFieldBody = document.createElement('INPUT');
     inputFieldBody.value = responseObject.lastname;
     document.getElementById('inputConteiner').appendChild(inputFieldBody);
-
+    let changeValue = document.createElement("BUTTON").value = "Na";
+    
 
 }
 

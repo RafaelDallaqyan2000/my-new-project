@@ -14,24 +14,27 @@ header{
   position: relative;
 }
 .h1{
-  position: absolute;
   width: 300px;
   margin: 40px 0 0 20px;
   padding: 20px 0 0 10px;
+  background: linear-gradient(90deg, rgb(29, 3, 146) 0%, rgb(10, 7, 180) 50%, #1900ff86 100%);
+  display: inline-block;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
 }
-.h1::after{
-  content: "";
-  width: 60%;
-  height: 4px;
-  position: absolute;
-  bottom: -10px;
-  left: 37%;
-  transform: translateX(-50%);
-  background-color: rgb(0, 0, 0);
-  transition:  0.5s;
-}
+
 span{
-  color: rgb(160, 106, 5);
+  background: linear-gradient(90deg, blue 0%, rgb(154, 7, 180) 50%, #ff00d4 100%);
+display: inline-block;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation:slidebg 10s linear infinite ;
+}
+
+@keyframes slidebg {
+to {
+  background-position:30vw;
+}
 }
 nav{
   overflow: hidden;
@@ -41,7 +44,8 @@ nav{
  }
 nav ul li{
   display: inline-flex;
-  padding: 25px 20px 25px 20px;
+  padding: 25px 5px 25px 5px;
+  margin-left: 20px ;
 }
 nav ul li a{
   text-decoration: none;
@@ -91,7 +95,7 @@ box-shadow: 5px 5px 0px 0px blue;
 border: 3px solid blue;
 }
 #someRequest:hover{
-  animation:slidebg 2.5s linear infinite ;
+  animation:slidebg 2s linear infinite ;
 }
 
 @keyframes slidebg {
@@ -112,7 +116,7 @@ border: 3px solid blue;
 }
 #addStudent:hover{
   cursor: pointer;
-  animation:slidebg 2.5s linear infinite ;
+  animation:slidebg 2s linear infinite ;
 }
 ::-webkit-scrollbar{
 
