@@ -82,7 +82,7 @@ font-size: 20px;
 padding: 20px; 
 margin: 20px 20px 30px 200px;
 cursor:pointer;
-background: linear-gradient(90deg, blue 0%, blueviolet 50%, #b300ff 100%);
+background: linear-gradient(90deg, rgb(199, 1, 182) 0%, rgb(0, 26, 255) 50%, rgb(0, 162, 255)100%);
 display: inline-block;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;

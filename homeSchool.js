@@ -12,6 +12,25 @@
    }
  }
 
+ let b = {};
+ b.name = "Noro";
+ b.age = 18;
+ b.lastName = "Mirz";
+
+ const i = {
+   name : "Rafael",
+   age : 21
+ };
+ for(let ie in b){
+   console.log(ie + ":" + b[ie] + "\n" + i[ie]);
+ }
+
+ 
+//  for(z in b){
+//    console.log(z + ":" + b[z]);
+//  }
+
+
 //  let userList = [
 //     // { 'name': "Armadon", "surname": "Makedonsky", "age": 33 },
 //     // { 'name': "Armadon", "surname": "Makedonsky", "age": 33 }

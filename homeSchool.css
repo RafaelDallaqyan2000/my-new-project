@@ -19,6 +19,7 @@
    background:linear-gradient(140deg, rgb(0, 108, 250) 40%,rgba(101, 5, 255, 0.561),rgb(82, 2, 156) );
    width: 100%;
     font-size: 17px;
+    z-index: 1000;
   }
   .img{
     float: left;
