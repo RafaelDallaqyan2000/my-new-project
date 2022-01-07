@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(27, 22, 22);
+}
+.container {
+    position: relative;
+    margin: 200px auto;
+    width: 250px;
+    height: 250px;
+    perspective: 500px;
+}
+.cube {
+    width: inherit;
+    height: inherit;
+    transform-style: preserve-3d;
+}
+.side {
+    position: absolute;
+    width:inherit;
+    height: inherit;
+    border: 5px solid #fff;
+    font: normal 70px arial;
+    line-height: 250px;
+    color: #fff;
+}
+.front {
+    transform: translateZ(125px);
+}
+
+
+.back {
+    transform:rotateY(180deg) translateZ(125px);
+}
+.back .div1 {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    border-radius: 0 0 250px;
+}
+.back .div2 {
+    background-color: lawngreen;
+    width: 100px;
+    height: 100px;
+    border-radius: 0 100px 0 0;
+    position:absolute;
+    bottom: 0;
+}
+.back .div3 {
+    background-color: turquoise;
+    width: 100px;
+    height: 100px;
+    border-radius: 0 0 0 150px;
+    position: absolute;
+    right: 0px;
+    top: 0;
+}
+
+
+.right {
+    transform: rotateY(90deg) translateZ(125px);
+}
+.left {
+    transform: rotateY(-90deg) translateZ(125px);
+}
+.top {
+    transform: rotateX(90deg) translateZ(125px);
+}
+.bottom {
+    transform: rotateX(-90deg) translateZ(125px);
+}

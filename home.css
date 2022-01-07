@@ -1,0 +1,42 @@
+.divOne {
+    background-color: rgb(61, 200, 5);
+    width: 100px;
+    height: 100px;
+    border-radius:  150px 0 0 0 ;
+    border: 4px dotted blueviolet;
+}
+.divTwo {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 0 150px 0 0;
+    border: 4px dotted blueviolet;
+}
+.divThree {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 0 0 0 150px;
+    border: 4px dotted blueviolet;
+    
+}
+.divFore {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(90, 192, 7);
+    border-radius: 0 0 150px 0;
+    border: 4px dotted blueviolet;
+    
+}
+.div1 {
+    display: flex;
+}
+.div2 {
+    display: flex;
+    
+}
+
+.container {
+    transform: rotateY(20deg) rotateX(25deg);
+
+}

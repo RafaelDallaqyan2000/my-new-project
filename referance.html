@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            transform-style: preserve-3d;
+            gap: 10px;
+            transform: rotateY(30deg) rotateX(10deg);
+        }
+        .container > .text {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            transition: 2.3s ease-in-out;
+            text-shadow: 0 0 20px  rgb(255, 187, 0);
+
+            transition-delay: calc(0.25s * var(--i));
+        }
+       body:hover .container .text {
+            transform: rotateX(-360deg);
+        }
+       body:hover .container .text:last-child {
+            transform: rotateX(630deg);
+        }
+        .container .text::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background:linear-gradient(rgb(36, 26, 23), rgb(93, 83, 63));
+            transform-origin: left;
+            transform: rotateY(90deg) translateX(-50px);
+        }
+        .container .text span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:linear-gradient(rgb(22, 20, 16), rgb(100, 100, 86));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: #fff;
+            transform-style: preserve-3d;
+            transform: rotateX(calc(90deg * var(--i))) translateZ(50px);
+        }
+        .container .text:last-child::before {
+            background: rgb(93, 0, 0);
+        }
+        .container .text:last-child span {
+            text-shadow: 0 0 10px rgb(2, 133, 255);
+            background:linear-gradient(rgb(155, 4, 37), rgb(131, 5, 5))
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text" style="--j:0">
+            <span style="--i:0">2</span>
+            <span style="--i:1">3</span>
+            <span style="--i:2">4</span>
+            <span style="--i:3">5</span>
+        </div>
+        <div class="text" style="--j:0">
+            <span style="--i:0">0</span>
+            <span style="--i:1">1</span>
+            <span style="--i:2">2</span>
+            <span style="--i:3">3</span>
+        </div>
+        <div class="text" style="--j:0">
+            <span style="--i:0">2</span>
+            <span style="--i:1">3</span>
+            <span style="--i:2">4</span>
+            <span style="--i:3">5</span>
+        </div>
+        <div class="text" style="--j:0">
+            <span style="--i:0">1</span>
+            <span style="--i:1">2</span>
+            <span style="--i:2">3</span>
+            <span style="--i:3">4</span>
+        </div>
+    </div>
+<script>
+    let i = 0;
+    function loope (val) {
+        if (val > 10) {
+            return
+        }
+        console.log("value--->>>", val);
+        return loope(val + 1)
+    }
+    loope(4)
+
+</script>
+</body>
+</html>
